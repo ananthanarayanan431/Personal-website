@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { createWebHashHistory } from 'vue-router';
 
 import AboutMe from '@/components/AboutMe.vue';
 import Projects from '@/components/Projects.vue';

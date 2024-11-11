@@ -1,134 +1,95 @@
+
 <template>
-    <div class="min-h-screen bg-white py-20">
-      <div class="container mx-auto px-4 max-w-2xl">
-        <h2 class="text-4xl font-bold mb-12">
-          <span class="text-blue-600">■</span> Let's talk
-        </h2>
-        <form @submit.prevent="handleSubmit" class="space-y-6">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label class="block mb-2">First Name *</label>
-              <input 
-                v-model="form.firstName"
-                type="text" 
-                class="w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2" 
-                required
-              />
-            </div>
-            <div>
-              <label class="block mb-2">Last Name *</label>
-              <input 
-                v-model="form.lastName"
-                type="text" 
-                class="w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2" 
-                required
-              />
-            </div>
-          </div>
-          <div>
-            <label class="block mb-2">Email *</label>
+  <section id="contact" ref="contact" class="min-h-screen bg-stone-100 py-20">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold mb-12 text-center">
+      <span class="text-blue-600 mr-2">■</span>Let's talk
+    </h2>
+
+    <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8">
+      <form @submit.prevent="handleSubmit" class="space-y-8">
+        <!-- Name Fields Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="flex flex-col">
+            <label class="mb-2 text-sm">First Name *</label>
             <input 
-              v-model="form.email"
-              type="email" 
-              class="w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2" 
-              required
-            />
-          </div>
-          <div>
-            <label class="block mb-2">Subject</label>
-            <input 
-              v-model="form.subject"
+              v-model="form.firstName"
               type="text" 
-              class="w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2" 
+              required
+              class="border-b border-gray-300 focus:border-blue-600 outline-none py-2 bg-transparent"
             />
           </div>
-          <div>
-            <label class="block mb-2">Message</label>
-            <textarea 
-              v-model="form.message"
-              class="w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2" 
-              rows="4"
-            ></textarea>
+
+          <div class="flex flex-col">
+            <label class="mb-2 text-sm">Last Name *</label>
+            <input 
+              v-model="form.lastName"
+              type="text" 
+              required
+              class="border-b border-gray-300 focus:border-blue-600 outline-none py-2 bg-transparent"
+            />
           </div>
-          <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full">
+        </div>
+
+        <!-- Email Field -->
+        <div class="flex flex-col">
+          <label class="mb-2 text-sm">Email *</label>
+          <input 
+            v-model="form.email"
+            type="email" 
+            required
+            class="border-b border-gray-300 focus:border-blue-600 outline-none py-2 bg-transparent"
+          />
+        </div>
+
+        <!-- Subject Field -->
+        <div class="flex flex-col">
+          <label class="mb-2 text-sm">Subject</label>
+          <input 
+            v-model="form.subject"
+            type="text" 
+            class="border-b border-gray-300 focus:border-blue-600 outline-none py-2 bg-transparent"
+          />
+        </div>
+
+        <!-- Message Field -->
+        <div class="flex flex-col">
+          <label class="mb-2 text-sm">Message</label>
+          <textarea 
+            v-model="form.message"
+            rows="4"
+            class="border-b border-gray-300 focus:border-blue-600 outline-none py-2 bg-transparent resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+          <button 
+            type="submit" 
+            class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors"
+          >
             Send
           </button>
-        </form>
-      </div>
-    </div>
-  </template>
-  
-  <script setup>
-  import { reactive } from 'vue'
-  
-  const form = reactive({
-    firstName: '',
-    lastName: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
-  
-  const handleSubmit = () => {
-    console.log('Form submitted:', form)
-    // Add your form submission logic here
-  }
-  </script>
-
-<!-- <template>
-    <div class="container mx-auto px-4 max-w-2xl">
-          <h2 class="text-4xl font-bold mb-12">
-            <span class="text-blue-600">■</span> Let's talk
-          </h2>
-          <form @submit.prevent="handleSubmit" class="space-y-6">
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <label class="block mb-2">First Name *</label>
-                <input 
-                  v-model="form.firstName"
-                  type="text" 
-                  class="w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2" 
-                  required
-                />
-              </div>
-              <div>
-                <label class="block mb-2">Last Name *</label>
-                <input 
-                  v-model="form.lastName"
-                  type="text" 
-                  class="w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2" 
-                  required
-                />
-              </div>
-            </div>
-            <div>
-              <label class="block mb-2">Email *</label>
-              <input 
-                v-model="form.email"
-                type="email" 
-                class="w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2" 
-                required
-              />
-            </div>
-            <div>
-              <label class="block mb-2">Subject</label>
-              <input 
-                v-model="form.subject"
-                type="text" 
-                class="w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2" 
-              />
-            </div>
-            <div>
-              <label class="block mb-2">Message</label>
-              <textarea 
-                v-model="form.message"
-                class="w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2" 
-                rows="4"
-              ></textarea>
-            </div>
-            <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full">
-              Send
-            </button>
-          </form>
         </div>
-</template> -->
+      </form>
+    </div>
+  </div>
+</section>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const form = ref({
+  firstName: '',
+  lastName: '',
+  email: '',
+  subject: '',
+  message: ''
+});
+
+const handleSubmit = () => {
+  // Handle form submission logic here
+  console.log(form.value);
+};
+</script>

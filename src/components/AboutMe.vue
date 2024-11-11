@@ -1,5 +1,4 @@
 <script setup>
-// Import icons from lucide-vue-next
 import { 
   Facebook,
   Twitter, 
@@ -22,8 +21,8 @@ import {
                       class="w-full h-full object-cover"
                     />
                   </div>
-                  <h2 class="text-2xl font-bold mb-1">Maya Nelson</h2>
-                  <div class="text-blue-700 tracking-wider text-sm mb-6">PROJECT MANAGER</div>
+                  <h2 class="text-2xl font-bold mb-1">Anantha Narayanan</h2>
+                  <div class="text-blue-700 tracking-wider text-sm mb-6">AI ENGINEER</div>
                 </div>
               </div>
               
